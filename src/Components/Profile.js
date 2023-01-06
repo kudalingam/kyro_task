@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import MailIcon from "@mui/icons-material/MailOutline";
-import DisplayNameIcon from "@mui/icons-material/AccountBox";
-import LocationIcon from "@mui/icons-material/LocationOn";
-import CallIcon from "@mui/icons-material/Call";
-import { Button, InputAdornment, TextField } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
+import {
+  MailOutline,
+  AccountBox,
+  LocationOn,
+  Person,
+  Close,
+  Call,
+} from "@mui/icons-material";
+import {
+  Button,
+  Alert,
+  Box,
+  IconButton,
+  InputAdornment,
+  Collapse,
+  TextField,
+} from "@mui/material";
 
 const Profile = (props) => {
   const user_id = 1;
   const [Myprofile, setMyprofile] = useState({});
   const [message, setMessage] = useState("");
+  const [open, setOpen] = React.useState(true);
   useEffect((props) => {
-    async function getUser1() {
+    async function getUser() {
       try {
         const response = await axios.get(
           `https://rich-plum-abalone-ring.cyclic.app/user/${user_id}`
         );
-        console.log(response);
         setMyprofile(response.data[0]);
         props.setFirstName(response.data[0].FirstName);
         props.setLastName(response.data[0].LastName);
@@ -29,12 +40,10 @@ const Profile = (props) => {
         console.error(error);
       }
     }
-    getUser1();
+    getUser();
   }, []);
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log("ok");
-    // const data = Myprofile;
     const FirstName = props.firstName;
     const LastName = props.lastName;
     const DisplayName = props.displayName;
@@ -52,15 +61,14 @@ const Profile = (props) => {
       Location,
       id,
     };
-    console.log(data);
     try {
-      console.log("Data", data);
       const response = await axios.put(
         `https://rich-plum-abalone-ring.cyclic.app/user/Update/${user_id}`,
         data
       );
       if (response.status === 200) {
-        setMessage("Updated successfully");
+        setMessage("Successfully Changed");
+        setOpen(true);
         console.log(message);
       }
     } catch (error) {
@@ -77,19 +85,22 @@ const Profile = (props) => {
     props.setLocation(Myprofile.Location);
   };
 
-  return (
-    <>
-      <div className="profile">
-        <div className="greetings">
-          <h3>Welcome, {props.displayName}</h3>
-        </div>
-        <h4>My Profile</h4>
+  const { DisplayName } = Myprofile;
 
+  return (
+    <div className="container vh-100">
+      <div className="greetings">
+        <h3>Welcome, {DisplayName}</h3>
+      </div>
+      <div className="profile-tag">
+        <h4>My Profile</h4>
+      </div>
+      <div className="profile">
         <div>
           <form>
-            <div className="container">
+            <div className="container form-box">
               <div className="row m-3">
-                <div className="col">
+                <div className="col mt-5">
                   <TextField
                     label="First Name"
                     id="firstname"
@@ -98,14 +109,14 @@ const Profile = (props) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <PersonIcon />
+                          <Person />
                         </InputAdornment>
                       ),
                     }}
                     onChange={(e) => props.setFirstName(e.target.value)}
                   />
                 </div>
-                <div className="col">
+                <div className="col mt-5">
                   <TextField
                     label="Last Name"
                     id="lastname"
@@ -114,7 +125,7 @@ const Profile = (props) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <PersonIcon />
+                          <Person />
                         </InputAdornment>
                       ),
                     }}
@@ -132,7 +143,7 @@ const Profile = (props) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <DisplayNameIcon />
+                          <AccountBox />
                         </InputAdornment>
                       ),
                     }}
@@ -149,7 +160,7 @@ const Profile = (props) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <MailIcon />
+                          <MailOutline />
                         </InputAdornment>
                       ),
                     }}
@@ -168,7 +179,7 @@ const Profile = (props) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <CallIcon />
+                          <Call />
                         </InputAdornment>
                       ),
                     }}
@@ -184,7 +195,7 @@ const Profile = (props) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <LocationIcon />
+                          <LocationOn />
                         </InputAdornment>
                       ),
                     }}
@@ -193,8 +204,8 @@ const Profile = (props) => {
                 </div>
               </div>
             </div>
-            <div className="row m-5">
-              <div className="col text-center">
+            <div className="row m-3">
+              <div className="col mb-5 text-center">
                 <Button
                   variant="contained"
                   color="error"
@@ -204,16 +215,39 @@ const Profile = (props) => {
                   Save Changes
                 </Button>
               </div>
-              <div className="col text-center">
+              <div className="col mb-5 text-center">
                 <Button variant="contained" color="error" onClick={clearState}>
                   Reset
                 </Button>
               </div>
             </div>
           </form>
+          {message && (
+            <Box sx={{ width: "100%" }}>
+              <Collapse in={open}>
+                <Alert
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setOpen(false);
+                      }}
+                    >
+                      <Close fontSize="inherit" />
+                    </IconButton>
+                  }
+                  sx={{ mb: 2 }}
+                >
+                  {message}
+                </Alert>
+              </Collapse>
+            </Box>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

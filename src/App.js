@@ -33,7 +33,7 @@ function App() {
             setLastName={setLastName}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 ">
           <Preview
             firstName={firstName}
             lastName={lastName}

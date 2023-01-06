@@ -38,7 +38,7 @@
 
 .person-img .MuiButtonBase-root {
   position: absolute;
-  top: 45%;
+  top: 30%;
   right: 5%;
   background: #f0f8ff;
   border-radius: 10px;
@@ -76,23 +76,30 @@ body {
 
 .pre {
   background: rgb(220, 220, 220, 0.2);
+  height: 100%;
 }
 
-.d-flex {
+.preview-top {
   align-items: center;
-  justify-content: flex-end;
-  margin: 10px 0;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
 }
 .greetings {
-  top: -6%;
-  position: absolute;
-  left: 5%;
+  position: relative;
+  margin: 5%;
 }
-
+.profile-tag {
+  position: relative;
+  top: 7%;
+  padding-left: 8%;
+}
 .profile-layout {
   position: relative;
 }
 
+.form-box {
+  margin: 5%;
+}
 .profile {
   margin: 70px;
   box-shadow: 1px -1px 9px 13px rgb(211 211 211 / 31%);

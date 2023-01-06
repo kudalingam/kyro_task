@@ -9,8 +9,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const Preview = (props) => {
   return (
-    <div className="container">
-      <div className="d-flex">
+    <div className="container vh-100">
+      <div className="d-flex preview-top">
         <Button size="small" variant="contained" color="error">
           <AddIcon fontSize="small" />
           Add Project
@@ -27,7 +27,7 @@ const Preview = (props) => {
             <span>{props.displayName}</span>
           </b>
           <br></br>
-          <span>Project Manager</span>
+          <span>Developer</span>
         </div>
         <div>
           <ArrowDropDownIcon />
