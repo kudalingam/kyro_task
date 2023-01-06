@@ -1,0 +1,102 @@
+.menu-item ul li {
+  padding: 10px 0;
+  text-align: left;
+  list-style: none !important;
+}
+
+.menu-item ul li span {
+  padding: 0 0 0 10px;
+}
+
+.logout_btn {
+  position: relative;
+  right: 0;
+  text-align: left;
+  bottom: 0;
+  top: 20%;
+  left: 12%;
+  z-index: 1030;
+}
+.logout_btn span {
+  padding: 0 0 0 10px;
+}
+
+.column3 {
+  width: 20%;
+  -webkit-box-shadow: 5px 0px 0px 1px rgba(248, 248, 248, 1);
+  -moz-box-shadow: 5px 0px 0px 1px rgba(248, 248, 248, 1);
+  box-shadow: 5px 0px 0px 1px rgba(248, 248, 248, 1);
+}
+
+.menu-item ul {
+  padding-left: 15px;
+}
+
+.person-img img {
+  position: relative;
+}
+
+.person-img .MuiButtonBase-root {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  background: #f0f8ff;
+  border-radius: 10px;
+}
+
+.previewtext {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.previewname {
+  display: flex;
+  justify-content: center;
+}
+
+.previewtext .previewicon {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.previewtext .previewicon p {
+  padding: 0 10px;
+}
+
+.previewname p {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+body {
+  color: #212529 !important;
+  overflow: hidden;
+}
+
+.pre {
+  background: rgb(220, 220, 220, 0.2);
+}
+
+.d-flex {
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+.greetings {
+  top: -6%;
+  position: absolute;
+  left: 5%;
+}
+
+.profile-layout {
+  position: relative;
+}
+
+.profile {
+  margin: 70px;
+  box-shadow: 1px -1px 9px 13px rgb(211 211 211 / 31%);
+  -webkit-box-shadow: 1px -1px 9px 13px rgb(211 211 211 / 31%);
+  -moz-box-shadow: 1px -1px 9px 13px rgba(211, 211, 211, 0.31);
+  border-radius: 10px;
+}
