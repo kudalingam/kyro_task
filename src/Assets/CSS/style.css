@@ -71,7 +71,7 @@
 
 body {
   color: #212529 !important;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .pre {

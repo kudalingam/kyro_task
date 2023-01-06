@@ -10,6 +10,7 @@ import PersonIcon from "@mui/icons-material/Person";
 const Profile = (props) => {
   const user_id = 1;
   const [Myprofile, setMyprofile] = useState({});
+  const [message, setMessage] = useState("");
   useEffect((props) => {
     async function getUser1() {
       try {
@@ -59,7 +60,8 @@ const Profile = (props) => {
         data
       );
       if (response.status === 200) {
-        console.log("Updated successfully");
+        setMessage("Updated successfully");
+        console.log(message);
       }
     } catch (error) {
       console.error(error);

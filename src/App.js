@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MenuBar from "./Components/MenuBar";
-import Preview from "./Components/Preview";
 import Profile from "./Components/Profile";
+import Preview from "./Components/Preview";
 
 function App() {
   const [firstName, setFirstName] = useState("");
