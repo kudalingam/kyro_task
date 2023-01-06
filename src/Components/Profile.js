@@ -23,25 +23,35 @@ const Profile = (props) => {
   const [Myprofile, setMyprofile] = useState({});
   const [message, setMessage] = useState("");
   const [open, setOpen] = React.useState(true);
-  useEffect((props) => {
-    async function getUser() {
-      try {
-        const response = await axios.get(
-          `https://rich-plum-abalone-ring.cyclic.app/user/${user_id}`
-        );
-        setMyprofile(response.data[0]);
-        props.setFirstName(response.data[0].FirstName);
-        props.setLastName(response.data[0].LastName);
-        props.setDisplayName(response.data[0].DisplayName);
-        props.setMail(response.data[0].Mail);
-        props.setPhone(response.data[0].Phone);
-        props.setLocation(response.data[0].Location);
-      } catch (error) {
-        console.error(error);
+  useEffect(
+    (props) => {
+      async function getUser() {
+        try {
+          const response = await axios.get(
+            `https://rich-plum-abalone-ring.cyclic.app/user/${user_id}`
+          );
+          setMyprofile(response.data[0]);
+          props.setFirstName(response.data[0].FirstName);
+          props.setLastName(response.data[0].LastName);
+          props.setDisplayName(response.data[0].DisplayName);
+          props.setMail(response.data[0].Mail);
+          props.setPhone(response.data[0].Phone);
+          props.setLocation(response.data[0].Location);
+        } catch (error) {
+          console.error(error);
+        }
       }
-    }
-    getUser();
-  }, []);
+      getUser();
+    },
+    [
+      props.firstName,
+      props.lastName,
+      props.displayName,
+      props.phone,
+      props.mail,
+      props.location,
+    ]
+  );
   async function handleSubmit(e) {
     e.preventDefault();
     const FirstName = props.firstName;
