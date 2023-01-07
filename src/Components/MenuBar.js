@@ -1,14 +1,17 @@
 import "../Assets/CSS/style.css";
 import logo from "../Assets/Images/kyro.png";
-import MenuIcon from "@mui/icons-material/Menu";
-import LogoutIcon from "@mui/icons-material/Logout";
-import HomeIcon from "@mui/icons-material/Home";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import Documents from "@mui/icons-material/ReceiptLong";
-import MessageIcon from "@mui/icons-material/Message";
-import Projects from "@mui/icons-material/Assignment";
-import Organizations from "@mui/icons-material/CorporateFare";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import {
+  Menu,
+  Logout,
+  Home,
+  Dashboard,
+  ReceiptLong,
+  Message,
+  Assignment,
+  CorporateFare,
+  SettingsRounded,
+} from "@mui/icons-material";
+
 const MenuBar = () => {
   return (
     <div className="container vh-100">
@@ -17,43 +20,43 @@ const MenuBar = () => {
           <img src={logo} alt="Kyro Logo" width="125px"></img>
         </div>
         <div>
-          <MenuIcon fontSize="large" />
+          <Menu fontSize="large" />
         </div>
       </div>
       <div className="menu-item">
         <ul>
           <li>
-            <HomeIcon color="disabled" />
+            <Home color="disabled" />
             <span>Home</span>
           </li>
           <li>
-            <Projects color="disabled" />
-            <span>Projects</span>
+            <Assignment color="disabled" />
+            <span>Assignment</span>
           </li>
           <li>
-            <DashboardIcon color="disabled" />
+            <Dashboard color="disabled" />
             <span>Dashboard</span>
           </li>
           <li>
-            <MessageIcon color="disabled" />
+            <Message color="disabled" />
             <span>Messages</span>
           </li>
           <li>
-            <Documents color="disabled" />
-            <span> Documents</span>
+            <ReceiptLong color="disabled" />
+            <span> ReceiptLong</span>
           </li>
           <li>
-            <Organizations color="disabled" />
-            <span>Organizations</span>
+            <CorporateFare color="disabled" />
+            <span>CorporateFare</span>
           </li>
           <li>
-            <SettingsRoundedIcon color="disabled" />
+            <SettingsRounded color="disabled" />
             <span>Settings</span>
           </li>
         </ul>
       </div>
       <div className="logout_btn">
-        <LogoutIcon color="disabled" />
+        <Logout color="disabled" />
         <span>Logout</span>
       </div>
     </div>

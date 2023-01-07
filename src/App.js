@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuBar from "./Components/MenuBar";
 import Profile from "./Components/Profile";
-import Preview from "./Components/Preview";
+
+// export const UserContext = React.createContext();
 
 function App() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [mail, setMail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
-  const [displayName, setDisplayName] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [mail, setMail] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [displayName, setDisplayName] = useState("");
 
   return (
     <div className="container-fluid">
@@ -17,38 +18,47 @@ function App() {
         <div className="column3 text-center">
           <MenuBar />
         </div>
-        <div className="col-7 profile-layout">
-          <Profile
-            firstName={firstName}
-            lastName={lastName}
-            mail={mail}
-            phone={phone}
-            location={location}
-            displayName={displayName}
-            setDisplayName={setDisplayName}
-            setLocation={setLocation}
-            setPhone={setPhone}
-            setMail={setMail}
-            setFirstName={setFirstName}
-            setLastName={setLastName}
-          />
-        </div>
-        <div className="col-3 ">
-          <Preview
-            firstName={firstName}
-            lastName={lastName}
-            mail={mail}
-            phone={phone}
-            location={location}
-            displayName={displayName}
-            setDisplayName={setDisplayName}
-            setLocation={setLocation}
-            setPhone={setPhone}
-            setMail={setMail}
-            setFirstName={setFirstName}
-            setLastName={setLastName}
-          />
-        </div>
+        <Profile />
+        {/* <div className="col-7 profile-layout">
+          <UserContext.Provider
+            value={{
+              firstName,
+              setFirstName,
+              lastName,
+              setLastName,
+              mail,
+              setMail,
+              phone,
+              setPhone,
+              location,
+              setLocation,
+              displayName,
+              setDisplayName,
+            }}
+          >
+            <Profile />
+          </UserContext.Provider>
+        </div> */}
+        {/* <div className="col-3 ">
+          <UserContext.Provider
+            value={{
+              firstName,
+              setFirstName,
+              lastName,
+              setLastName,
+              mail,
+              setMail,
+              phone,
+              setPhone,
+              location,
+              setLocation,
+              displayName,
+              setDisplayName,
+            }}
+          >
+            <Preview />
+          </UserContext.Provider>
+        </div> */}
       </div>
     </div>
   );
