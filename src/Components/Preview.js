@@ -63,6 +63,7 @@ const Preview = () => {
                     <MailOutline color="disabled" />
                     <p>{user.mail}</p>
                   </div>
+                  <br></br>
                   <div className="previewicon">
                     <CallIcon color="disabled" />
                     <p>{user.phone}</p>
