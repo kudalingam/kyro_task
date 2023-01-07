@@ -7,6 +7,7 @@ import CallIcon from "@mui/icons-material/Call";
 import { Button, IconButton } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { UserContext } from "../Components/Profile";
+import { MailOutline } from "@mui/icons-material";
 
 const Preview = () => {
   // const user = useContext(UserContext);
@@ -60,17 +61,17 @@ const Preview = () => {
                     <p>{user.firstName}</p>
                     <p>{user.lastName}</p>
                   </div>
-
-                  <div>
+                  <div className="previewicon">
+                    <MailOutline color="disabled" />
                     <p>{user.mail}</p>
                   </div>
                   <div className="previewicon">
-                    <CallIcon />
+                    <CallIcon color="disabled" />
                     <p>{user.phone}</p>
                   </div>
                   <br></br>
                   <div className="previewicon">
-                    <LocationOn />
+                    <LocationOn color="disabled" />
                     <p>{user.location}</p>
                   </div>
                 </div>
