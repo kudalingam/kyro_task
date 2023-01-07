@@ -41,7 +41,7 @@ const Profile = (props) => {
       }
     }
     getUser();
-  }, [props]);
+  }, []);
   async function handleSubmit(e) {
     e.preventDefault();
     const FirstName = props.firstName;
