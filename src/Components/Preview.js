@@ -10,8 +10,6 @@ import { UserContext } from "../Components/Profile";
 import { MailOutline } from "@mui/icons-material";
 
 const Preview = () => {
-  // const user = useContext(UserContext);
-
   return (
     <>
       <UserContext.Consumer>
@@ -57,7 +55,7 @@ const Preview = () => {
                 </div>
 
                 <div className="previewtext">
-                  <div className="previewname">
+                  <div className="previewname fs-5 text-bold">
                     <p>{user.firstName}</p>
                     <p>{user.lastName}</p>
                   </div>
@@ -65,6 +63,7 @@ const Preview = () => {
                     <MailOutline color="disabled" />
                     <p>{user.mail}</p>
                   </div>
+                  <br></br>
                   <div className="previewicon">
                     <CallIcon color="disabled" />
                     <p>{user.phone}</p>

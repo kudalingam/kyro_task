@@ -34,11 +34,12 @@
 
 .person-img img {
   position: relative;
+  margin-top: 20%;
 }
 
 .person-img .MuiButtonBase-root {
   position: absolute;
-  top: 30%;
+  top: 40%;
   right: 5%;
   background: #f0f8ff;
   border-radius: 10px;
@@ -46,7 +47,7 @@
 
 .previewtext {
   text-align: center;
-  padding: 50px 0;
+  padding: 5% 0;
 }
 
 .previewname {
