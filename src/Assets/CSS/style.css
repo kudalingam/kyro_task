@@ -86,11 +86,11 @@ body {
 }
 .greetings {
   position: relative;
-  margin: 5%;
+  margin: 2%;
 }
 .profile-tag {
   position: relative;
-  top: 7%;
+  top: 2%;
   padding-left: 8%;
 }
 .profile-layout {
@@ -101,7 +101,7 @@ body {
   margin: 5%;
 }
 .profile {
-  margin: 70px;
+  margin: 0 5%;
   box-shadow: 1px -1px 9px 13px rgb(211 211 211 / 31%);
   -webkit-box-shadow: 1px -1px 9px 13px rgb(211 211 211 / 31%);
   -moz-box-shadow: 1px -1px 9px 13px rgba(211, 211, 211, 0.31);

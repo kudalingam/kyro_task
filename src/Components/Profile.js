@@ -22,8 +22,8 @@ const Profile = (props) => {
   const user_id = 1;
   const [Myprofile, setMyprofile] = useState({});
   const [message, setMessage] = useState("");
-  const [open, setOpen] = React.useState(true);
-  useEffect(() => {
+  const [open, setOpen] = useState(true);
+  useEffect((props) => {
     async function getUser() {
       try {
         const response = await axios.get(
@@ -42,16 +42,16 @@ const Profile = (props) => {
     }
     getUser();
   }, []);
+
   async function handleSubmit(e) {
     e.preventDefault();
+    const id = user_id;
     const FirstName = props.firstName;
     const LastName = props.lastName;
     const DisplayName = props.displayName;
     const Mail = props.mail;
     const Phone = props.phone;
     const Location = props.location;
-    const id = user_id;
-
     const data = {
       FirstName,
       LastName,
