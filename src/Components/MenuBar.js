@@ -14,7 +14,7 @@ import {
 
 const MenuBar = () => {
   return (
-    <div className="container vh-100">
+    <div className="container vh-100 text-muted">
       <div className="d-flex justify-content-between align-items-center">
         <div>
           <img src={logo} alt="Kyro Logo" width="125px"></img>
@@ -23,7 +23,7 @@ const MenuBar = () => {
           <Menu fontSize="large" />
         </div>
       </div>
-      <div className="menu-item">
+      <div className="menu-item mt-5 ">
         <ul>
           <li>
             <Home color="disabled" />
@@ -31,7 +31,7 @@ const MenuBar = () => {
           </li>
           <li>
             <Assignment color="disabled" />
-            <span>Assignment</span>
+            <span>Projects</span>
           </li>
           <li>
             <Dashboard color="disabled" />
@@ -43,11 +43,11 @@ const MenuBar = () => {
           </li>
           <li>
             <ReceiptLong color="disabled" />
-            <span> ReceiptLong</span>
+            <span> Documents</span>
           </li>
           <li>
             <CorporateFare color="disabled" />
-            <span>CorporateFare</span>
+            <span>Organizations</span>
           </li>
           <li>
             <SettingsRounded color="disabled" />

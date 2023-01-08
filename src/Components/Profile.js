@@ -19,7 +19,6 @@ import {
   TextField,
 } from "@mui/material";
 export const UserContext = React.createContext();
-
 const Profile = () => {
   const user_id = 1;
   const [firstName, setFirstName] = useState("");
@@ -31,6 +30,8 @@ const Profile = () => {
   const [Myprofile, setMyprofile] = useState({});
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState(true);
+  const [timing, setTiming] = useState("");
+  const [today, setToday] = useState("");
 
   useEffect(() => {
     async function getUser() {
@@ -50,6 +51,16 @@ const Profile = () => {
       }
     }
     getUser();
+    setToday(
+      new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(new Date())
+    );
+    setTiming(
+      new Date().getHours() < 12
+        ? "Morning"
+        : new Date().getHours() < 18
+        ? "Afternoon"
+        : "Evening"
+    );
   }, []);
 
   async function handleSubmit(e) {
@@ -92,14 +103,18 @@ const Profile = () => {
     setPhone(Myprofile.Phone);
     setLocation(Myprofile.Location);
   }
+
   const { DisplayName } = Myprofile;
   return (
     <>
       <div className="col-7 profile-layout container vh-100">
         <div className="greetings">
-          <h3>Welcome, {DisplayName}</h3>
+          <h3>
+            Good {timing}, {DisplayName}
+          </h3>
+          <h6 className="text-muted">{today}</h6>
         </div>
-
+        {}
         <div className="profile-tag">
           <h4>My Profile</h4>
         </div>

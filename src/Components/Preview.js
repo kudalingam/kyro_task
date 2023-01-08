@@ -1,13 +1,15 @@
 import React from "react";
 import PersonImg from "../Assets/Images/1.jpg";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import AddIcon from "@mui/icons-material/Add";
-import LocationOn from "@mui/icons-material/LocationOn";
-import CallIcon from "@mui/icons-material/Call";
+import {
+  PhotoCamera,
+  MailOutline,
+  LocationOn,
+  Add,
+  Call,
+  ArrowDropDown,
+} from "@mui/icons-material";
 import { Button, IconButton } from "@mui/material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { UserContext } from "../Components/Profile";
-import { MailOutline } from "@mui/icons-material";
 
 const Preview = () => {
   return (
@@ -18,7 +20,7 @@ const Preview = () => {
             <div className="container vh-100">
               <div className="d-flex preview-top">
                 <Button size="small" variant="contained" color="error">
-                  <AddIcon fontSize="small" />
+                  <Add fontSize="small" />
                   Add Project
                 </Button>
                 <img
@@ -36,7 +38,7 @@ const Preview = () => {
                   <span>Developer</span>
                 </div>
                 <div>
-                  <ArrowDropDownIcon />
+                  <ArrowDropDown />
                 </div>
               </div>
               <div className="pre">
@@ -65,7 +67,7 @@ const Preview = () => {
                   </div>
                   <br></br>
                   <div className="previewicon">
-                    <CallIcon color="disabled" />
+                    <Call color="disabled" />
                     <p>{user.phone}</p>
                   </div>
                   <br></br>
