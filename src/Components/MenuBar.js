@@ -11,6 +11,7 @@ import {
   CorporateFare,
   SettingsRounded,
 } from "@mui/icons-material";
+import MenuItem from "./MenuItem";
 
 const MenuBar = () => {
   return (
@@ -25,39 +26,23 @@ const MenuBar = () => {
       </div>
       <div className="menu-item mt-5 ">
         <ul>
-          <li>
-            <Home color="disabled" />
-            <span>Home</span>
-          </li>
-          <li>
-            <Assignment color="disabled" />
-            <span>Projects</span>
-          </li>
-          <li>
-            <Dashboard color="disabled" />
-            <span>Dashboard</span>
-          </li>
-          <li>
-            <Message color="disabled" />
-            <span>Messages</span>
-          </li>
-          <li>
-            <ReceiptLong color="disabled" />
-            <span> Documents</span>
-          </li>
-          <li>
-            <CorporateFare color="disabled" />
-            <span>Organizations</span>
-          </li>
-          <li>
-            <SettingsRounded color="disabled" />
-            <span>Settings</span>
-          </li>
+          <MenuItem icon={<Home color="disabled" />} name="Home" />
+          <MenuItem icon={<Assignment color="disabled" />} name="Projects" />
+          <MenuItem icon={<Dashboard color="disabled" />} name="Dashboard" />
+          <MenuItem icon={<Message color="disabled" />} name="Messages" />
+          <MenuItem icon={<ReceiptLong color="disabled" />} name="Documents" />
+          <MenuItem
+            icon={<CorporateFare color="disabled" />}
+            name="Organizations"
+          />
+          <MenuItem
+            icon={<SettingsRounded color="disabled" />}
+            name="Settings"
+          />
         </ul>
       </div>
       <div className="logout_btn">
-        <Logout color="disabled" />
-        <span>Logout</span>
+        <MenuItem icon={<Logout color="disabled" />} name="Logout" />
       </div>
     </div>
   );

@@ -9,15 +9,9 @@ import {
   Close,
   Call,
 } from "@mui/icons-material";
-import {
-  Button,
-  Alert,
-  Box,
-  IconButton,
-  InputAdornment,
-  Collapse,
-  TextField,
-} from "@mui/material";
+import { Alert, Box, IconButton, Collapse } from "@mui/material";
+import InputField from "./InputField";
+import ButtonField from "./ButtonField";
 export const UserContext = React.createContext();
 const Profile = () => {
   const user_id = 1;
@@ -28,6 +22,7 @@ const Profile = () => {
   const [location, setLocation] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [Myprofile, setMyprofile] = useState({});
+  const [update, setUpdate] = useState(false);
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState(true);
   const [timing, setTiming] = useState("");
@@ -39,13 +34,14 @@ const Profile = () => {
         const response = await axios.get(
           `https://rich-plum-abalone-ring.cyclic.app/user/${user_id}`
         );
-        setMyprofile(response.data[0]);
         setFirstName(response.data[0].FirstName);
         setLastName(response.data[0].LastName);
         setDisplayName(response.data[0].DisplayName);
         setMail(response.data[0].Mail);
         setPhone(response.data[0].Phone);
         setLocation(response.data[0].Location);
+        setMyprofile(response.data[0]);
+        setUpdate(false);
       } catch (error) {
         console.log(error);
       }
@@ -61,7 +57,7 @@ const Profile = () => {
         ? "Afternoon"
         : "Evening"
     );
-  }, []);
+  }, [update]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -87,8 +83,10 @@ const Profile = () => {
         data
       );
       if (response.status === 200) {
+        console.log(response);
         setMessage("Successfully Changed");
         setOpen(true);
+        setUpdate(true);
       }
     } catch (error) {
       console.error(error);
@@ -123,130 +121,57 @@ const Profile = () => {
             <form>
               <div className="container form-box">
                 <div className="row m-3">
-                  <div className="col mt-5">
-                    <TextField
-                      label="First Name"
-                      id="firstname"
-                      value={firstName}
-                      sx={{ m: 1, width: "25ch" }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Person />
-                          </InputAdornment>
-                        ),
-                      }}
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                  </div>
-                  <div className="col mt-5">
-                    <TextField
-                      label="Last Name"
-                      id="lastname"
-                      value={lastName}
-                      sx={{ m: 1, width: "25ch" }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Person />
-                          </InputAdornment>
-                        ),
-                      }}
-                      onChange={(e) => setLastName(e.target.value)}
-                    />
-                  </div>
+                  <InputField
+                    label="First Name"
+                    id="firstname"
+                    value={firstName}
+                    icon={<Person />}
+                    change={setFirstName}
+                  />
+                  <InputField
+                    label="Last Name"
+                    id="lastname"
+                    value={lastName}
+                    icon={<Person />}
+                    change={setLastName}
+                  />
                 </div>
                 <div className="row m-3">
-                  <div className="col">
-                    <TextField
-                      label="Display Name"
-                      id="displayname"
-                      value={displayName}
-                      sx={{ m: 1, width: "25ch" }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <AccountBox />
-                          </InputAdornment>
-                        ),
-                      }}
-                      onChange={(e) => setDisplayName(e.target.value)}
-                    />
-                  </div>
-                  <div className="col">
-                    <TextField
-                      label="Mail"
-                      id="mail"
-                      type="email"
-                      value={mail}
-                      sx={{ m: 1, width: "25ch" }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <MailOutline />
-                          </InputAdornment>
-                        ),
-                      }}
-                      onChange={(e) => setMail(e.target.value)}
-                    />
-                  </div>
+                  <InputField
+                    label="Display Name"
+                    id="displayname"
+                    value={displayName}
+                    icon={<AccountBox />}
+                    change={setDisplayName}
+                  />
+                  <InputField
+                    label="Mail"
+                    id="mail"
+                    value={mail}
+                    icon={<MailOutline />}
+                    change={setMail}
+                  />
                 </div>
                 <div className="row m-3">
-                  <div className="col">
-                    <TextField
-                      label="Phone (Work)"
-                      id="phone"
-                      type="number"
-                      value={phone}
-                      sx={{ m: 1, width: "25ch" }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Call />
-                          </InputAdornment>
-                        ),
-                      }}
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                  </div>
-                  <div className="col">
-                    <TextField
-                      label="Location"
-                      id="location"
-                      value={location}
-                      sx={{ m: 1, width: "25ch" }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LocationOn />
-                          </InputAdornment>
-                        ),
-                      }}
-                      onChange={(e) => setLocation(e.target.value)}
-                    />
-                  </div>
+                  <InputField
+                    label="Phone"
+                    id="phone"
+                    value={phone}
+                    icon={<Call />}
+                    change={setPhone}
+                  />
+                  <InputField
+                    label="Location"
+                    id="location"
+                    value={location}
+                    icon={<LocationOn />}
+                    change={setLocation}
+                  />
                 </div>
               </div>
               <div className="row m-3">
-                <div className="col mb-5 text-center">
-                  <Button
-                    variant="contained"
-                    color="error"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
-                    Save Changes
-                  </Button>
-                </div>
-                <div className="col mb-5 text-center">
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={clearState}
-                  >
-                    Reset
-                  </Button>
-                </div>
+                <ButtonField click={handleSubmit} name="Save Changes" />
+                <ButtonField click={clearState} name="Reset" />
               </div>
             </form>
             {message && (

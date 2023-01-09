@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import { Button, IconButton } from "@mui/material";
 import { UserContext } from "../Components/Profile";
+import PreviewText from "./PreviewText";
 
 const Preview = () => {
   return (
@@ -61,20 +62,19 @@ const Preview = () => {
                     <p>{user.firstName}</p>
                     <p>{user.lastName}</p>
                   </div>
-                  <div className="previewicon">
-                    <MailOutline color="disabled" />
-                    <p>{user.mail}</p>
-                  </div>
-                  <br></br>
-                  <div className="previewicon">
-                    <Call color="disabled" />
-                    <p>{user.phone}</p>
-                  </div>
-                  <br></br>
-                  <div className="previewicon">
-                    <LocationOn color="disabled" />
-                    <p>{user.location}</p>
-                  </div>
+
+                  <PreviewText
+                    icon={<MailOutline color="disabled" />}
+                    name={user.mail}
+                  />
+                  <PreviewText
+                    icon={<Call color="disabled" />}
+                    name={user.phone}
+                  />
+                  <PreviewText
+                    icon={<LocationOn color="disabled" />}
+                    name={user.location}
+                  />
                 </div>
               </div>
             </div>
